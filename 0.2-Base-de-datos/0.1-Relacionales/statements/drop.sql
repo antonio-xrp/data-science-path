@@ -1,0 +1,2 @@
+DROP DATABASE curso_sql;
+DROP DATABASE IF EXISTS curso_sql;
