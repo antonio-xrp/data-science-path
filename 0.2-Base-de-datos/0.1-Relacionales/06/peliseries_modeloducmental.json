@@ -1,0 +1,56 @@
+{
+  "peliculas": [
+    {
+      "pelicula_id": "",
+      "titulo": "",
+      "estreno": "",
+      "duracion": "",
+      "sinopsis": "",
+      "genero": ["a", "b"],
+      "estudio": ["a", "b"],
+      "director": ["a", "b"],
+      "elenco": ["a", "b"],
+      "poster": ["a", "b"],
+      "trailer": ["a", "b"],
+      "pais": ["a", "b"]
+    }
+  ],
+  "series": [
+    {
+      "serie_id": "",
+      "titulo": "",
+      "estreno": "",
+      "final": "",
+      "sinopsis": "",
+      "genero": ["a", "b"],
+      "estudio": ["a", "b"],
+      "creador": ["a", "b"],
+      "elenco": ["a", "b"],
+      "poster": ["a", "b"],
+      "trailer": ["a", "b"],
+      "pais": ["a", "b"],
+      "temporada": [
+        {
+          "temporada_id": "",
+          "numero": "",
+          "estreno": "",
+          "titulo": "",
+          "sinopsis": "",
+          "poster": ["a", "b"],
+          "trailer": ["a", "b"],
+          "episodios": [
+            {
+              "episodio_id": "",
+              "numero": "",
+              "titulo": "",
+              "estreno": "",
+              "sinopsis": "",
+              "director": ["a", "b"],
+              "duracion": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
