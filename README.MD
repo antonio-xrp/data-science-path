@@ -15,6 +15,11 @@ He diseñado esta ruta de aprendizaje para adquirir conocimientos de nivel bási
 - Cálculo
 - Estadística
 
+### Base de datos
+
+- Base de datos correcionales
+- Base de datos no correlacionales
+
 ### Análisis exploratorio de datos (EDA)
 
 - Pandas y Numpy
