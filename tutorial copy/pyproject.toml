@@ -1,0 +1,7 @@
+[tool.black]
+line-length = 256
+
+[tool.nbqa.addopts]
+flake8 = [
+    "--ignore=E501,E402,E226,F401"
+]
