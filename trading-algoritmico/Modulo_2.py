@@ -235,9 +235,9 @@ plt.title('Distribución de Rendimientos Diarios')
 plt.show()
 
 '''2.2.4'''
+import numpy as np
 # Implementación Básica de un Modelo de Regresión Lineal:
 from sklearn.linear_model import LinearRegression
-import numpy as np
 
 # Extraer los datos para entrenamiento (eliminando filas con NaN)
 df = df.dropna()
@@ -246,6 +246,7 @@ y = df['Close'].values  # Variable dependiente (precio de cierre)
 
 # Dividir los datos en conjuntos de entrenamiento y prueba
 from sklearn.model_selection import train_test_split
+
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 # Crear y entrenar el modelo de regresión lineal
