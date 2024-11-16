@@ -13,7 +13,7 @@ df['SMA_50'] = df['Close'].rolling(window=50).mean()
 # Definir las reglas de entrada y salida
 df['Signal'] = 0  # Inicializamos las señales a 0
 df['Signal'][df['SMA_10'] > df['SMA_50']] = 1  # Regla de entrada
-f['Signal'].diff() # Detectamos cambios en las señales para identificar entradas y salidas
+df['Signal'].diff() # Detectamos cambios en las señales para identificar entradas y salidas
 
 # eliminamos NaNs
 df = df.dropna()
@@ -29,7 +29,9 @@ import talib as ta
 import matplotlib.pyplot as plt
 
 # Descargar datos históricos del futuro del Nasdaq
-df = yf.download('NQ=F', start='2015-01-01', end='2024-01-01')
+
+df = yf.Ticker('NQ=F')
+df = df.history(start='2015-01-01', end='2024-01-01')
 
 # Calcular indicadores
 df['SMA_50'] = ta.SMA(df['Close'], timeperiod=50)
@@ -76,7 +78,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Descargar datos históricos
-df = yf.download('NQ=F', start='2010-01-01', end='2024-01-01')
+df =yf.Ticker('NQ=F')
+df = df.history( start='2010-01-01', end='2024-01-01')
 
 # Calcular medias móviles
 df['SMA_50'] = df['Close'].rolling(window=50).mean()
