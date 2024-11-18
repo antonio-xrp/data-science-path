@@ -1,7 +1,7 @@
 '''6.1.1'''
 # Ejemplo básico de reglas de entrada y salida
-import yfinance as yf
 import pandas as pd
+import yfinance as yf
 
 # Descargar los datos de un activo
 df = yf.download('AAPL', start='2021-01-01', end='2024-01-01')
@@ -22,11 +22,11 @@ df = df.dropna()
 print(df[['Close', 'SMA_10', 'SMA_50', 'Signal', 'Position']])
 
 '''6.1.2'''
-# Construcción de Señales de Trading
-import yfinance as yf
+import matplotlib.pyplot as plt
 import pandas as pd
 import talib as ta
-import matplotlib.pyplot as plt
+# Construcción de Señales de Trading
+import yfinance as yf
 
 # Descargar datos históricos del futuro del Nasdaq
 
@@ -72,14 +72,14 @@ df['Signal'][df['MACD'] > df['Signal_Line']] = 1  # Compra cuando MACD > Línea 
 
 
 '''6.2.2'''
+import matplotlib.pyplot as plt
+import pandas as pd
 # Ejemplo de Backtesting Básico en Python
 import yfinance as yf
-import pandas as pd
-import matplotlib.pyplot as plt
 
 # Descargar datos históricos
 df =yf.Ticker('NQ=F')
-df = df.history( start='2010-01-01', end='2024-01-01')
+df = df.history(start='2010-01-01', end='2024-01-01')
 
 # Calcular medias móviles
 df['SMA_50'] = df['Close'].rolling(window=50).mean()
@@ -198,11 +198,11 @@ df['Transaction_Cost'] = df['Signal'].diff().abs() * (commission + slippage)
 df['Net_Strategy_Returns'] = df['Strategy_Returns'] - df['Transaction_Cost']
 
 
-# Ejemplo del Backtest anterior con metricas incorporadas:
-import yfinance as yf
-import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
+import pandas as pd
+# Ejemplo del Backtest anterior con metricas incorporadas:
+import yfinance as yf
 
 # Descargar datos históricos
 df = yf.download('NQ=F', start='2010-01-01', end='2024-01-01')
@@ -311,10 +311,10 @@ df['Net_Strategy_Returns'] = df['Strategy_Returns'] - df['Transaction_Cost']
 df = yf.download('AAPL', start='2015-01-01', end='2024-01-01', adjusted=True)
 
 '''6.3.1'''
+import numpy as np
+import pandas as pd
 # Ejemplo de ajuste de parámetros en Python
 import yfinance as yf
-import pandas as pd
-import numpy as np
 
 # Descargar datos históricos
 df = yf.download('AAPL', start='2015-01-01', end='2024-01-01')
@@ -349,11 +349,11 @@ print(f"Mejores parámetros: SMA corta={best_params[0]}, SMA larga={best_params[
 print(f"Mejor rendimiento: {best_performance:.2%}")
 
 '''6.3.2'''
+import numpy as np
+import pandas as pd
 # Grid Search
 import yfinance as yf
-import pandas as pd
 from sklearn.model_selection import ParameterGrid
-import numpy as np
 
 # Descargar datos históricos
 df = yf.download('NQ=F', start='2010-01-01', end='2024-01-01')
@@ -398,11 +398,11 @@ print(f'Los mejores parámetros son: {best_params} con un rendimiento total de {
 
 
 
+import numpy as np
+import pandas as pd
 #  Random Search
 import yfinance as yf
-import pandas as pd
 from sklearn.model_selection import ParameterGrid
-import numpy as np
 
 # Descargar datos históricos
 df = yf.download('NQ=F', start='2010-01-01', end='2024-01-01')
@@ -444,11 +444,12 @@ for _ in range(5):  # 5 pruebas aleatorias
 print(f'Los mejores parámetros son: {best_params} con un rendimiento total de {best_return:.2%}')
 
 
+import random
+
+import pandas as pd
 # Algoritmos Genéticos
 import yfinance as yf
-import pandas as pd
-from deap import base, creator, tools, algorithms
-import random
+from deap import algorithms, base, creator, tools
 
 # Descargar datos históricos
 df_original = yf.download('NQ=F', start='2010-01-01', end='2024-01-01')
@@ -524,12 +525,13 @@ print(f'Los mejores parámetros son SMA_1: {int(best_individual[0])}, SMA_2: {in
 print(f'El mejor rendimiento total es: {best_return:.2%}')
 
 
+import random
+
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
 # Simulated Annealing
 import yfinance as yf
-import pandas as pd
-import numpy as np
-import random
-import matplotlib.pyplot as plt
 
 # Descargar datos históricos
 df_original = yf.download('NQ=F', start='2010-01-01', end='2024-01-01')
@@ -614,11 +616,10 @@ print(f'Los mejores parámetros son SMA_1: {best_sma_1}, SMA_2: {best_sma_2} con
 
 # Optimización Basada en Múltiples Métricas
 
+import numpy as np
+import pandas as pd
 # Ratio de Sharpe
 import yfinance as yf
-import pandas as pd
-import numpy as np
-
 
 # Descargar datos históricos
 df = yf.download('NQ=F', start='2010-01-01', end='2024-01-01')
@@ -658,11 +659,10 @@ for sma_1 in range(10, 100, 10):
 print(f'Los mejores parámetros son: {best_params} con un Ratio de Sharpe de {best_sharpe:.2f}')
 
 
+import numpy as np
+import pandas as pd
 # Drawdown Máximo
 import yfinance as yf
-import pandas as pd
-import numpy as np
-
 
 # Descargar datos históricos
 df = yf.download('NQ=F', start='2010-01-01', end='2024-01-01')
@@ -703,10 +703,10 @@ for sma_1 in range(10, 100, 10):
 print(f'Los mejores parámetros son: {best_params} con un Máximo Drawdown de {best_drawdown:.2%}')
 
 
+import numpy as np
+import pandas as pd
 # Ratio de Calmar
 import yfinance as yf
-import pandas as pd
-import numpy as np
 
 # Descargar datos históricos
 df = yf.download('NQ=F', start='2000-01-01', end='2024-01-01')
@@ -778,10 +778,10 @@ print(f'Los mejores parámetros son: {best_params} con un Ratio de Calmar de {be
 
 
 '''6.4.1'''
+import matplotlib.pyplot as plt
+import pandas as pd
 # Ejemplo práctico: Separación de datos
 import yfinance as yf
-import pandas as pd
-import matplotlib.pyplot as plt
 
 # Descargar datos históricos del futuro del Nasdaq
 df = yf.download('NQ=F', start='2010-01-01', end='2024-01-01')
@@ -810,11 +810,11 @@ plt.show()
 
 
 '''6.4.2'''
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
 # Ejemplo: Evaluación con datos fuera de muestra
 import yfinance as yf
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
 
 # Descargar datos históricos
 df_original = yf.download('NQ=F', start='2010-01-01', end='2024-01-01')
@@ -886,11 +886,11 @@ plt.show()
 
 
 '''6.4.3'''
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
 # Ejemplo de Walk-Forward Optimization
 import yfinance as yf
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
 
 # Descargar datos históricos
 df_original = yf.download('NQ=F', start='2010-01-01', end='2024-01-01')
@@ -960,11 +960,11 @@ print(f'Rendimiento promedio en validación fuera de muestra: {np.mean(validatio
 
 
 '''6.4.4'''
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
 # Ejemplo de Análisis de Sensibilidad
 import yfinance as yf
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
 from scipy.stats import gaussian_kde
 
 # Descargar datos históricos
@@ -1044,11 +1044,11 @@ plt.legend()
 plt.show()
 
 
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
 # Evaluación de la Robustez
 import yfinance as yf
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
 
 # Descargar datos históricos para el análisis de sensibilidad y robustez
 df_original = yf.download('NQ=F', start='2010-01-01', end='2024-01-01')
